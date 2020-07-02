@@ -11,13 +11,9 @@ const { auth } = require('./middleware/auth');
 const { dirname } = require('path');
 
 mongoose.Promise = global.Promise;
-mongoose.connect(config.DATABASE,{
-    useNewUrlParser: true ,
-    useUnifiedTopology:true,
-    useCreateIndex: true
-});
+mongoose.connect(config.DATABASE);
 
-app.use(express.static('client/build'));
+app.use(express.static(__dirname+'client/build'));
 
 app.use(bodyParser.json());
 app.use(cookieParser());
