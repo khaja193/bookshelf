@@ -187,7 +187,7 @@ if(process.env.NODE_ENV==='production'){
     const path = require('path');
 
     app.get('/*',(req,res)=>{
-        res.sendfile(path.resolve(--dirname,'../client','build','index.html'))
+        res.sendfile(path.resolve(__dirname,'../client','build','index.html'))
     })
 }
 
