@@ -6,7 +6,9 @@ const URI ='mongodb+srv://khaja:khaja@cluster0.cdk0b.mongodb.net/bookshelf?retry
         useCreateIndex: true
     });
     console.log('mongo connected')
-} */
+} 
+"heroku-postbuild":"NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
+*/
 
 
 
