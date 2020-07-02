@@ -1,4 +1,4 @@
-const URI ='mongodb+srv://@cluster0.cdk0b.mongodb.net/bookshelf?retryWrites=true&w=majority';
+const URI ='mongodb+srv://khaja:khaja@cluster0.cdk0b.mongodb.net/bookshelf?retryWrites=true';
 /*const connectDB = async() =>{
     await mongoose.connect(URI,{
         useNewUrlParser: true ,
@@ -13,7 +13,7 @@ const URI ='mongodb+srv://@cluster0.cdk0b.mongodb.net/bookshelf?retryWrites=true
 const config ={
     production:{
         SECRET : process.env.SECRET,
-        DATABASE: URI    
+        DATABASE: process.env.DATABASE    
     },
     default:{
         SECRET : 'Saddy0101',
