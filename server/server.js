@@ -13,7 +13,9 @@ const { dirname } = require('path');
 mongoose.Promise = global.Promise;
 mongoose.connect(config.DATABASE);
 
-app.use(express.static(__dirname+'client/build'));
+//const root = require('path').join(__dirname)
+
+app.use(express.static('client/build'));
 
 app.use(bodyParser.json());
 app.use(cookieParser());
