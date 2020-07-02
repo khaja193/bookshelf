@@ -8,6 +8,7 @@ const config = require('./config/config').get(process.env.NODE_ENV);
 const { User } = require('./models/user');
 const { Book } = require('./models/book');
 const { auth } = require('./middleware/auth');
+const { dirname } = require('path');
 
 mongoose.Promise = global.Promise;
 mongoose.connect(config.DATABASE,{
@@ -15,6 +16,8 @@ mongoose.connect(config.DATABASE,{
     useUnifiedTopology:true,
     useCreateIndex: true
 });
+
+app.use(express.static('client/build'));
 
 app.use(bodyParser.json());
 app.use(cookieParser());
@@ -179,6 +182,14 @@ app.delete('/api/bookDelete',(req,res)=>{
         res.json(true)
     })
 })
+
+if(process.env.NODE_ENV==='production'){
+    const path = require('path');
+
+    app.get('/*',(req,res)=>{
+        res.sendfile(path.resolve(--dirname,'../client','build','index.html'))
+    })
+}
 
 app.listen(port,()=>{
     console.log('SERVER RUNNING........!!!!!!!!!!!!!!!!!');
