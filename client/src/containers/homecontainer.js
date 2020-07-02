@@ -22,7 +22,7 @@ class HomeContainer extends Component {
     )
     loadmore =() =>{
         let count = this.props.books.list.length;
-        this.props.dispatch(getBooks(1,count,'asc',this.props.books.list));
+        this.props.dispatch(getBooks(3,count,'asc',this.props.books.list));
 
 
     }
